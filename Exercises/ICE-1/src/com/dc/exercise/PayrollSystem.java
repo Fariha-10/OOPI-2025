@@ -53,22 +53,46 @@ public class PayrollSystem {
             System.out.println("Employee list is full. Cannot add more employees.");
             return;
         }
-
-        System.out.println("Enter Employee ID: ");
-        int id = inputscanner.nextInt();
+        //validate employee Id
+        int id;
+        System.out.println("Enter employee ID: ");
+        if (inputscanner.hasNextInt()) {
+            id = inputscanner.nextInt();
+        } else {
+            System.out.println("Invalid input. Please enter valid ID.");
+            inputscanner.next();
+            return;
+        }
 
         System.out.println("Enter Name: ");
-        String name = inputscanner.next();
+        String name = inputscanner.nextLine();
 
         System.out.println("Enter Department: ");
-        String department =inputscanner.next();
+        String department = inputscanner.nextLine();
 
+        // Validate salary input
+        double salary;
         System.out.println("Enter Salary: ");
-        double salary = inputscanner.nextDouble();
+        if (inputscanner.hasNextDouble()) {
+            salary = inputscanner.nextDouble();
+        } else {
+            System.out.println("Invalid input. Please enter a valid number for salary.");
+            inputscanner.next();
+            return;
+        }
 
-        System.out.println("Enter Tax Rate (example:for 13% write 0.13):");
-        double taxRate = inputscanner.nextDouble();
+        // Validate tax rate
+        double taxRate;
+        System.out.println("Enter Tax Rate (example: for 13% write 0.13):");
+        if (inputscanner.hasNextDouble()) {
+            taxRate = inputscanner.nextDouble();
+        } else {
+            System.out.println("Invalid input. Please enter a valid number for tax rate.");
+            inputscanner.next();
+            return;
+        }
 
+        // Add employee if inputs are valid
         employees[employeeCount] = new Employee(id, name, department, salary, taxRate);
         employeeCount++;
         System.out.println("Employee added successfully!");
@@ -92,6 +116,9 @@ public class PayrollSystem {
         System.out.println("Enter Employee ID to search: ");
         int searchId = inputscanner.nextInt();
 
+
+
+
         for (int i = 0; i < employeeCount; i++) {
             if (employees[i].getId() == searchId) {
                 System.out.println("Employee found:");
@@ -106,6 +133,9 @@ public class PayrollSystem {
     private static void updateEmployeeSalary(Scanner inputscanner) {
         System.out.print("Enter Employee ID to update salary: ");
         int updateId = inputscanner.nextInt();
+
+
+
 
         for (int i = 0; i < employeeCount; i++) {
             if (employees[i].getId() == updateId) {
