@@ -1,3 +1,6 @@
+//Name:Fariha Noshin
+// Date: 2025-01-29
+//description:The Student class represents a student with basic details such as ID, name, and age, including encapsulation through private fields and a static university name.
 package com.dc.assignment;
 
 //Define the Student class
