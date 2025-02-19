@@ -13,24 +13,24 @@ public class Main {
         //  Input Handling with Re-prompt
         int n;
         while (true) {
-            // Prompt the user to enter the number of elements
+            // prompting the user to enter the number of elements
             System.out.print("Enter the number of elements (maximum 20): ");
             n = scanner.nextInt();
 
-            // Validate input to ensure it does not exceed 20 and is greater than 0
+            // Validating input to ensure it does not exceed 20 and is greater than 0
             if (n <= 20 && n > 0) {
                 // Exit the loop if the input is valid
                 break;
             } else {
-                // Display an error message if the input is invalid
+                // Displaying an error message if the input is invalid
                 System.out.println("Invalid input! Please enter a number between 1 and 20.");
             }
         }
 
-        // Create an array to store the numbers
+        // Creating an array to store the numbers
         int[] array = new int[n];
 
-        // Prompt the user to enter the numbers
+        // Prompting the user to enter the numbers
         System.out.print("Enter " + n + " numbers: ");
         for (int i = 0; i < n; i++) {
             // Read numbers into the array
@@ -38,14 +38,14 @@ public class Main {
         }
 
         // Processing the Array
-        // Display the array elements
+        // Displaying the array elements
         System.out.print("Array Elements: ");
         for (int num : array) {
             System.out.print(num + " ");
         }
         System.out.println();
 
-        // Find the largest and smallest numbers
+        // Finding the largest and smallest numbers
         int largest = array[0];
         int smallest = array[0];
         int sum = 0;
@@ -59,25 +59,25 @@ public class Main {
             if (num < smallest) {
                 smallest = num;
             }
-            // Calculate the sum of all numbers
+            // Calculating the sum of all numbers
             sum += num;
         }
 
-        // Calculate the average of the numbers
+        // Calculating the average of the numbers
         double average = (double) sum / n;
 
-        // Display the results
+        // Displaying the results
         System.out.println("Largest Number: " + largest);
         System.out.println("Smallest Number: " + smallest);
         System.out.println("Sum: " + sum);
         System.out.println("Average: " + average);
 
         //  Searching and Sorting
-        // Prompt the user to enter a number to search
+        // Prompting the user to enter a number to search
         System.out.print("Enter a number to search: ");
         int searchNum = scanner.nextInt();
 
-        // Search for the number in the array
+        // Searching for the number in the array
         boolean found = false;
         for (int num : array) {
             if (num == searchNum) {
@@ -87,7 +87,7 @@ public class Main {
             }
         }
 
-        // Display the search result
+        // Displaying the search result
         if (found) {
             System.out.println(searchNum + " is found in the array.");
         } else {
@@ -103,7 +103,7 @@ public class Main {
          */
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
-                // Swap elements if they are in the wrong order
+                // Swapping elements if they are in the wrong order
                 if (array[j] > array[j + 1]) {
                     int temp = array[j];
                     array[j] = array[j + 1];
@@ -112,14 +112,14 @@ public class Main {
             }
         }
 
-        // Display the sorted array
+        // Displaying the sorted array
         System.out.print("Sorted Array: ");
         for (int num : array) {
             System.out.print(num + " ");
         }
         System.out.println();
 
-        // Close the scanner to avoid resource leak
+        // Closing the scanner to avoid resource leak
         scanner.close();
     }
 }
